@@ -35,7 +35,7 @@ export class UsersController {
   }
 
   // Update phone number
-  @Patch()
+  @Patch('phone/:id')
   updatePhoneNumber(): object {
     return {
       message: 'Actualizar numero de telefono',
@@ -43,7 +43,7 @@ export class UsersController {
   }
 
   // Update first name
-  @Patch()
+  @Patch('name/:id')
   updateFirstName(): object {
     return {
       message: 'Actualizar nombre',
@@ -51,7 +51,7 @@ export class UsersController {
   }
 
   // Update image
-  @Patch()
+  @Patch('image/:id')
   updateImage(): object {
     return {
       message: 'Actualizar imagen',
@@ -59,7 +59,7 @@ export class UsersController {
   }
 
   // Remove user
-  @Delete()
+  @Delete('/:id')
   deleteUser(): object {
     return {
       message: 'Eliminar usuario',
