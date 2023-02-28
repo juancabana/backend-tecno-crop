@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Patch, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Patch,
+  Delete,
+  Param,
+  Body,
+} from '@nestjs/common';
+
+type Id = string | number;
 
 @Controller('posts')
 export class PostsController {
@@ -11,57 +21,60 @@ export class PostsController {
   }
   // Get post
   @Get(':id')
-  findOne(): object {
+  findOne(@Param('id') id: Id): object {
     return {
-      message: 'Obtener post by id',
+      message: `Obtener post by id ${id}`,
     };
   }
 
   // Get posts user
   @Get('user/:id')
-  getPostsUser(): object {
+  getPostsUser(@Param('id') id: Id): object {
     return {
-      message: 'Obtener posts de un usuario',
+      message: `Obtener posts de un usuario ${id}`,
     };
   }
 
   // Get favourites posts
   @Get('favourites/:id')
-  getFavourites(): object {
+  getFavourites(@Param('id') id: Id): object {
     return {
-      message: 'Obtener favoritos',
+      message: `Obtener favoritos ${id}`,
     };
   }
 
   // Crear post
   @Post()
-  create(): object {
+  create(@Body() user: object): object {
     return {
       message: 'Create post',
+      user,
     };
   }
 
   // Update description post
-  @Patch('description/:id')
-  updateDescription(): object {
+  @Patch('description')
+  updateDescription(@Body() payload: object): object {
     return {
       message: 'Update description post',
+      payload,
     };
   }
 
   // Update likes post
-  @Patch('like/:id')
-  updateLike(): object {
+  @Patch('like')
+  updateLike(@Body() payload: object): object {
     return {
       message: 'Update like post',
+      payload,
     };
   }
 
   // Delete post
   @Delete(':id')
-  delete(): object {
+  delete(@Param('id') id: Id): object {
     return {
-      message: 'Delete post',
+      message: `Delete post ${id}`,
     };
   }
 }
