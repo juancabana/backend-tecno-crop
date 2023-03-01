@@ -12,33 +12,35 @@ import {
 export class CommentsController {
   // Get all comments related to a post
   @Get(':id')
-  findAll(): object {
+  findAll(@Param('id') id: string | number): object {
     return {
-      message: 'Obtener todos los comentarios de un post',
+      message: `Obtener todos los comentarios de un post ${id}`,
     };
   }
 
   // Create new comment
   @Post(':id')
-  create(): object {
+  create(@Param('id') id: string | number, @Body() payload: object): object {
     return {
-      message: 'Create new comment',
+      message: `Create new comment ${id}`,
+      payload,
     };
   }
 
   // Update comment
   @Put(':id')
-  update(): object {
+  update(@Param('id') id: string | number, @Body() payload: object): object {
     return {
-      message: 'Update comment',
+      message: `Update comment ${id}`,
+      payload,
     };
   }
 
   // Delete comment
   @Delete(':id')
-  delete(): object {
+  delete(@Param('id') id: string | number): object {
     return {
-      message: 'Delete comment',
+      message: `Delete comment ${id}`,
     };
   }
 }
