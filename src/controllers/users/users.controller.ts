@@ -7,6 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+import { UsersService } from './../../services/users/users.service';
 
 type Id = string | number;
 
@@ -25,12 +26,12 @@ type Image = {
 
 @Controller('users')
 export class UsersController {
+  constructor(private usersService: UsersService) {}
+
   // Get user list
   @Get()
   getUsers(): object {
-    return {
-      message: 'Obtener usuarios',
-    };
+    return this.usersService.findAll();
   }
 
   // get user by id
