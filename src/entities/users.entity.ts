@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 export class User {
-  id: object;
+  id: number | string;
   first_name: string;
   last_name: string;
   nickname: string;

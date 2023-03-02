@@ -37,9 +37,7 @@ export class UsersController {
   // get user by id
   @Get(':id')
   getUser(@Param('id') id: Id): object {
-    return {
-      message: `Obtener usuario por id ${id}`,
-    };
+    return this.usersService.findOne(id);
   }
 
   // Get user and their crops

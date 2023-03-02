@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './../../entities/users.entity';
 
 @Injectable()
 export class UsersService {
   private users: User[] = [
     {
-      id: { id: '193984' },
+      id: '193984',
       first_name: 'Juan',
       last_name: 'Cabana',
       nickname: 'cabanajuan',
@@ -22,7 +22,11 @@ export class UsersService {
   findAll() {
     return this.users;
   }
-  findOne(id) {
-    return this.users.find((item) => item.id === id);
+  findOne(id: number | string) {
+    const user = this.users.find((item) => item.id === id);
+    if (!user) {
+      throw new NotFoundException('Producto no encontrado');
+    }
+    return user;
   }
 }
