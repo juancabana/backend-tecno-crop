@@ -8,6 +8,7 @@ import {
   Body,
 } from '@nestjs/common';
 import { UsersService } from './../../services/users/users.service';
+import { CreateUserDto } from './../../dtos/users.dtos';
 
 type Id = string | number;
 
@@ -50,11 +51,8 @@ export class UsersController {
 
   // Create user
   @Post()
-  createUser(@Body() user: object): object {
-    return {
-      message: 'Create User',
-      user,
-    };
+  createUser(@Body() user: CreateUserDto): object {
+    return this.usersService.create(user);
   }
 
   // Update phone number

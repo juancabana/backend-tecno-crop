@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './../../entities/users.entity';
+import { CreateUserDto } from './../../dtos/users.dtos';
 
 @Injectable()
 export class UsersService {
@@ -28,5 +29,8 @@ export class UsersService {
       throw new NotFoundException('Producto no encontrado');
     }
     return user;
+  }
+  create(payload: CreateUserDto) {
+    return payload;
   }
 }
