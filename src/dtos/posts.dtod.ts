@@ -26,7 +26,6 @@ export class CreatePostDto {
   readonly images: string[];
 
   @IsNumber()
-  @IsPositive()
   @IsNotEmpty()
   readonly likes: number;
 
