@@ -7,6 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+import { CreateComment } from './../../dtos/comments.dtod';
 
 @Controller('comments')
 export class CommentsController {
@@ -20,7 +21,10 @@ export class CommentsController {
 
   // Create new comment
   @Post(':id')
-  create(@Param('id') id: string | number, @Body() payload: object): object {
+  create(
+    @Param('id') id: string | number,
+    @Body() payload: CreateComment,
+  ): object {
     return {
       message: `Create new comment ${id}`,
       payload,

@@ -7,6 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+import { CreatePostDto } from './../../dtos/posts.dtod';
 
 type Id = string | number;
 
@@ -45,7 +46,7 @@ export class PostsController {
 
   // Crear post
   @Post()
-  create(@Body() user: object): object {
+  create(@Body() user: CreatePostDto): object {
     return {
       message: 'Create post',
       user,

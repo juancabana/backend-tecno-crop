@@ -1,13 +1,28 @@
 /* eslint-disable prettier/prettier */
-import { IsString, IsNumber, IsUrl, IsEmail, IsArray, IsNotEmpty, IsOptional, IsPositive } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsUrl,
+  IsEmail,
+  IsArray,
+  IsNotEmpty,
+  IsOptional,
+  IsPositive,
+  Min,
+  Max,
+  Matches
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
+  // @IsOptional()
+  // @Max(29)
   readonly first_name: string;
 
   @IsString()
   @IsNotEmpty()
+
   readonly last_name: string;
 
   @IsString()
@@ -17,6 +32,8 @@ export class CreateUserDto {
   @IsNumber()
   @IsPositive()
   @IsNotEmpty()
+  @Min(18)
+  @Max(120)
   readonly age: number;
 
   @IsString()
@@ -33,6 +50,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
+  @Matches(/^[0-9]{10}$/)
   readonly phone_number: string;
 
   @IsString()
@@ -41,7 +59,7 @@ export class CreateUserDto {
 
   @IsOptional()
   @IsArray()
-  readonly favourites?: object[]
+  readonly favourites?: object[];
 }
 export class UpdateUserDto {
   readonly first_name?: string;
