@@ -7,7 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { CreateComment } from './../../dtos/comments.dtod';
+import { CreateComment } from '../../comments/dtos/comments.dtod';
 
 @Controller('comments')
 export class CommentsController {

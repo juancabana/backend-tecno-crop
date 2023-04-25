@@ -7,8 +7,8 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { UsersService } from './../../services/users/users.service';
-import { CreateUserDto } from './../../dtos/users.dtos';
+import { UsersService } from './../../users/services/users.service';
+import { CreateUserDto } from '../../users/dtos/users.dtos';
 
 type Id = string | number;
 

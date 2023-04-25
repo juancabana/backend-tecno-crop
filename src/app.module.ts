@@ -1,15 +1,18 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersController } from './controllers/users/users.controller';
-import { PostsController } from './controllers/posts/posts.controller';
-import { CommentsController } from './controllers/comments/comments.controller';
-import { UsersService } from './services/users/users.service';
-import { PostsService } from './services/posts/posts.service';
-import { CommentsService } from './services/comments/comments.service';
+import { UsersController } from './users/controllers/users.controller';
+import { PostsController } from './posts/controllers/posts.controller';
+import { CommentsController } from './comments/controllers/comments.controller';
+import { UsersService } from './users/services/users.service';
+import { PostsService } from './posts/services/posts.service';
+import { CommentsService } from './comments/services/comments.service';
+import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
-  imports: [],
+  imports: [UsersModule, PostsModule, CommentsModule],
   controllers: [
     AppController,
     UsersController,

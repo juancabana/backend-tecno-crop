@@ -7,7 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { CreatePostDto } from './../../dtos/posts.dtod';
+import { CreatePostDto } from '../../posts/dtos/posts.dtod';
 
 type Id = string | number;
 
